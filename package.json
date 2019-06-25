@@ -1,0 +1,57 @@
+{
+  "name": "my-runner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Run script in sandbox with customized style",
+  "author": "imcuttle <moyuyc95@gmail.com>",
+  "scripts": {
+    "test": "jest",
+    "prepublishOnly": "npm test",
+    "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\" && git add README.md",
+    "version": "npm run doc && npm run changelog",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "sideEffects": false,
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "imcuttle",
+    "my",
+    "runner",
+    "my-runner"
+  ],
+  "typings": "index.d.ts",
+  "license": "MIT",
+  "repository": "imcuttle/my-runner",
+  "jest": {
+    "testMatch": [
+      "**/__test{s,}__/*.(spec|test).{t,j}s{x,}"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@types/jest": "^23.3.14",
+    "conventional-changelog-cli": "^2.0.21",
+    "documentation": "^11.0.1",
+    "husky": "^2.5.0",
+    "jest": "^23.6.0",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "dependencies": {
+    "resolve": "^1.11.1"
+  }
+}
