@@ -9,7 +9,7 @@ const { runScriptFile } = require('../lib/runScript')
 
 describe('runScript', function() {
   it('should runScript - spec', async () => {
-    expect(await runScriptFile(fixture('runScript/spec/index.js'))).toMatchInlineSnapshot(`
+    expect(await runScriptFile(fixture('runScript/spec/index.js')).module.exports).toMatchInlineSnapshot(`
 Array [
   Array [
     "aaa",
@@ -25,7 +25,7 @@ Array [
         global: {
           foo: 'foo'
         }
-      })
+      }).module.exports
     ).toMatchInlineSnapshot(`"foo"`)
   })
 
@@ -41,7 +41,7 @@ Array [
             foo: 'ctxFoo'
           }
         }
-      })
+      }).module.exports
     ).toMatchInlineSnapshot(`"ctxFoo"`)
   })
 
@@ -51,7 +51,7 @@ Array [
     expect(
       runScriptFile(fixture('runScript/global/index.js'), {
         transform
-      })
+      }).module.exports
     ).toMatchInlineSnapshot(`"duang"`)
 
     expect(transform).toBeCalledTimes(1)
@@ -64,7 +64,7 @@ Array [
         transform: (code, options) => "module.exports = require('./bar')",
         require: fakeRequire,
         resolvePath: path => path
-      })
+      }).module.exports
     ).toMatchInlineSnapshot(`"bar"`)
 
     expect(fakeRequire).toBeCalledTimes(1)

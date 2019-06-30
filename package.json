@@ -2,7 +2,7 @@
   "name": "my-runner",
   "version": "1.0.0",
   "main": "index.js",
-  "description": "Run script in sandbox with customized style",
+  "description": "Run CommonJS script in sandbox with customized style",
   "author": "imcuttle <moyuyc95@gmail.com>",
   "scripts": {
     "test": "jest",
@@ -31,6 +31,9 @@
   "license": "MIT",
   "repository": "imcuttle/my-runner",
   "jest": {
+    "setupFiles": [
+      "<rootDir>/setup.js"
+    ],
     "testMatch": [
       "**/__test{s,}__/*.(spec|test).{t,j}s{x,}"
     ]
@@ -52,6 +55,8 @@
     "pretty-quick": "^1.11.1"
   },
   "dependencies": {
+    "debug": "^4.1.1",
+    "micromatch": "^4.0.2",
     "resolve": "^1.11.1"
   }
 }
