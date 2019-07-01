@@ -19,6 +19,17 @@ Array [
 `)
   })
 
+  it('should runScript - spec modules', async () => {
+    const { cache, main } = runScriptFile(fixture('runScript/spec/index.js')).require
+    expect(main).toBe(cache[main.id])
+    expect(main.id).toBe(fixture('runScript/spec/index.js'))
+    expect(main.children.map(x => x.id)).toEqual([
+      fixture('runScript/spec/op.js'),
+      fixture('runScript/spec/a.js'),
+      fixture('runScript/spec/b.js')
+    ])
+  })
+
   it('should runScript - global', async () => {
     expect(
       await runScriptFile(fixture('runScript/global/index.js'), {
@@ -68,6 +79,27 @@ Array [
     ).toMatchInlineSnapshot(`"bar"`)
 
     expect(fakeRequire).toBeCalledTimes(1)
-    expect(fakeRequire).toBeCalledWith('./bar')
+  })
+
+  it('should circle supports', function() {
+    let chunks = []
+    const spy = jest.spyOn(console, 'log').mockImplementation((...argv) => {
+      chunks.push(argv)
+    })
+
+    const exps = runScriptFile(fixture('runScript/circle/1.js'), {}).module.exports
+    expect(exps).toEqual(require(fixture('runScript/circle/1.js')))
+    expect(chunks).toMatchSnapshot()
+  })
+
+  it('should circle-2 supports', function() {
+    let chunks = []
+    const spy = jest.spyOn(console, 'log').mockImplementation((...argv) => {
+      chunks.push(argv)
+    })
+
+    const exps = runScriptFile(fixture('runScript/circle-2/1.js'), {}).module.exports
+    expect(exps).toEqual(require(fixture('runScript/circle-2/1.js')))
+    expect(chunks).toMatchSnapshot()
   })
 })

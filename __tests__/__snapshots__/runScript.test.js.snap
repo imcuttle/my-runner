@@ -1,0 +1,208 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`runScript should circle supports 1`] = `
+Array [
+  Array [
+    Object {},
+  ],
+  Array [
+    "sync 3.js",
+    Array [
+      3,
+      Object {},
+    ],
+  ],
+  Array [
+    "sync 2.js",
+    Array [
+      2,
+      Array [
+        3,
+        Object {},
+      ],
+    ],
+  ],
+  Array [
+    "sync 1.js",
+    Array [
+      1,
+      Array [
+        2,
+        Array [
+          3,
+          Object {},
+        ],
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      1,
+      Array [
+        2,
+        Array [
+          3,
+          Object {},
+        ],
+      ],
+    ],
+  ],
+  Array [
+    Object {},
+  ],
+  Array [
+    "sync 3.js",
+    Array [
+      3,
+      Object {},
+    ],
+  ],
+  Array [
+    "sync 2.js",
+    Array [
+      2,
+      Array [
+        3,
+        Object {},
+      ],
+    ],
+  ],
+  Array [
+    "sync 1.js",
+    Array [
+      1,
+      Array [
+        2,
+        Array [
+          3,
+          Object {},
+        ],
+      ],
+    ],
+  ],
+  Array [
+    Object {},
+  ],
+]
+`;
+
+exports[`runScript should circle-2 supports 1`] = `
+Array [
+  Array [
+    Object {},
+  ],
+  Array [
+    "sync 4.js",
+    Array [
+      4,
+      Object {},
+    ],
+  ],
+  Array [
+    "sync 3.js",
+    Array [
+      3,
+      Array [
+        4,
+        Object {},
+      ],
+    ],
+  ],
+  Array [
+    "sync 2.js",
+    Array [
+      2,
+      Array [
+        3,
+        Array [
+          4,
+          Object {},
+        ],
+      ],
+    ],
+  ],
+  Array [
+    "sync 1.js",
+    Array [
+      1,
+      Array [
+        2,
+        Array [
+          3,
+          Array [
+            4,
+            Object {},
+          ],
+        ],
+      ],
+    ],
+  ],
+  Array [
+    Array [
+      1,
+      Array [
+        2,
+        Array [
+          3,
+          Array [
+            4,
+            Object {},
+          ],
+        ],
+      ],
+    ],
+  ],
+  Array [
+    Object {},
+  ],
+  Array [
+    "sync 4.js",
+    Array [
+      4,
+      Object {},
+    ],
+  ],
+  Array [
+    "sync 3.js",
+    Array [
+      3,
+      Array [
+        4,
+        Object {},
+      ],
+    ],
+  ],
+  Array [
+    "sync 2.js",
+    Array [
+      2,
+      Array [
+        3,
+        Array [
+          4,
+          Object {},
+        ],
+      ],
+    ],
+  ],
+  Array [
+    "sync 1.js",
+    Array [
+      1,
+      Array [
+        2,
+        Array [
+          3,
+          Array [
+            4,
+            Object {},
+          ],
+        ],
+      ],
+    ],
+  ],
+  Array [
+    Object {},
+  ],
+]
+`;
