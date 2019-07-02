@@ -23,16 +23,6 @@ const loadConfig = (path = process.cwd()) => {
 }
 
 /**
- * @typedef {{
- *   module: {exports},
- *   exports,
- *   require,
- *   global
- * }}
- * @name RunResult
- */
-
-/**
  * Run code script
  * @public
  * @param code {string}
@@ -82,6 +72,17 @@ function runFile(filename, opts = {}) {
     filename
   })
 }
+
+/**
+ * @public
+ * @typedef {{
+ *   module: {exports},
+ *   exports,
+ *   require,
+ *   global
+ * }}
+ * @name RunResult
+ */
 
 module.exports = {
   run,
