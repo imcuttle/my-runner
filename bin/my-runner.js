@@ -94,6 +94,8 @@ if (argv.help) {
     
     --logExports                  Should console.log(module.exports)
                                   [Default: false]
+                                  
+    --myrunnerrc                  Whether or not to look up .myrunnerrc or myrunner.config.js file. 
     
     --moduleNameMapper            A map from regular expressions to module names that allow to stub out resources, like images or styles with a single module. 
                                   (eg. --moduleNameMapper="*.less=./less-module")

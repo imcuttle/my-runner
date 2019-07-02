@@ -21,6 +21,8 @@ yarn add my-runner
 
 ```javascript
 const myRunner = require('my-runner')
+
+myRunner.runFile('/path/to/file.js').module.exports
 ```
 
 ## API
@@ -29,34 +31,63 @@ const myRunner = require('my-runner')
 
 ### run
 
-[index.js:34-44](https://github.com/imcuttle/my-runner/blob/df7477d15db41a02a8e5a321cbe1fd0c3bd84cc9/index.js#L34-L44 "Source code on GitHub")
+[index.js:58-69](https://github.com/imcuttle/my-runner/blob/c3500613ebebfad0d7ee047e585469efceac134c/index.js#L58-L69 'Source code on GitHub')
+
+Run code script
 
 #### Parameters
 
--   `code`  
--   `$1` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)**  (optional, default `{}`)
-    -   `$1.myrunnerrc`   (optional, default `true`)
-    -   `$1.cwd`  
-    -   `$1.rootDir`  
-    -   `$1.opts` **...any** 
--   `myrunnerrc`  
--   `cwd`  
--   `rootDir`  
--   `opts`  
+- `code` {string}
+- `opts` {{}} (optional, default `{}`)
+  - `opts.rootDir` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** The run environment's root directory path.
+  - `opts.myrunnerrc` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Whether or not to look up .myrunnerrc or myrunner.config.js file.
+  - `opts.moduleNameMapper` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?** A map from regular expressions to module names that allow to stub out resources, like images or styles with a single module.
+  - `opts.modulePathIgnorePatterns` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?** An array of regexp pattern strings that are matched against all module paths before those paths are to be considered 'visible' to the module loader.
+  - `opts.modulePaths` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?** An array of absolute paths to additional locations to search when resolving modules.
+  - `opts.moduleFileExtensions` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of file extensions your modules use. (optional, default `['.js','.json','.jsx','.ts','.tsx','.node']`)
+  - `opts.moduleDirectories` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of directory names to be searched recursively up from the requiring module's location. (optional, default `['node_modules']`)
+  - `opts.browser` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Respect Browserify's "browser" field in package.json when resolving modules. (optional, default `false`)
+  - `opts.transformIgnorePatterns` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of regexp pattern strings that are matched against all source file paths before transformation. If the test path matches any of the patterns, it will not be transformed. (optional, default `['/node_modules/']`)
+  - `opts.transform` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), ([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function) | {name: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), options: any})>** A map from regular expressions to paths to transformers. A transformer is a module that provides a synchronous function for transforming source files. (optional, default `{}`)
+  - `opts.globalSetup` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)?** This option allows the use of a custom global setup module which exports an async function that is triggered once.
+  - `opts.globals` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)?** A set of global variables that need to be available in environments.
+  - `opts.transformContext` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)?** A sync function for transforming context.
+  - `opts.global` **any** The reference on global environment. (optional, default `{...global}`)
+  - `opts.fs` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** The fs module. (optional, default `require('fs')`)
+  - `opts.vm` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** The vm module. (optional, default `require('vm')`)
 
-Returns **any** 
+Returns **RunResult**
+
+### runFile
+
+[index.js:78-84](https://github.com/imcuttle/my-runner/blob/c3500613ebebfad0d7ee047e585469efceac134c/index.js#L78-L84 'Source code on GitHub')
+
+Run file script
+
+#### Parameters
+
+- `filename` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**
+- `opts` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** Same as `run` options parameter. (optional, default `{}`)
+
+Returns **RunResult**
+
+### defaultAdvancedOptions
+
+[index.js:94-94](https://github.com/imcuttle/my-runner/blob/c3500613ebebfad0d7ee047e585469efceac134c/index.js#L94-L94 'Source code on GitHub')
+
+The default options
 
 ## Contributing
 
--   Fork it!
--   Create your new branch:  
-    `git checkout -b feature-new` or `git checkout -b fix-which-bug`
--   Start your magic work now
--   Make sure npm test passes
--   Commit your changes:  
-    `git commit -am 'feat: some description (close #123)'` or `git commit -am 'fix: some description (fix #123)'`
--   Push to the branch: `git push`
--   Submit a pull request :)
+- Fork it!
+- Create your new branch:  
+  `git checkout -b feature-new` or `git checkout -b fix-which-bug`
+- Start your magic work now
+- Make sure npm test passes
+- Commit your changes:  
+  `git commit -am 'feat: some description (close #123)'` or `git commit -am 'fix: some description (fix #123)'`
+- Push to the branch: `git push`
+- Submit a pull request :)
 
 ## Authors
 
