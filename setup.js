@@ -5,4 +5,4 @@
  *
  */
 
-process.env.DEBUG = 'my-runner'
+// process.env.DEBUG = 'my-runner'
