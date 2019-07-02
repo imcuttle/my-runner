@@ -7,7 +7,7 @@ const name = require('./package').name
 const cosmiconfig = require('cosmiconfig')
 const fs = require('fs')
 const nps = require('path')
-const { runScriptAdvanced } = require('./lib/runScriptAdvanced')
+const { runScriptAdvanced, defaultAdvancedOptions } = require('./lib/runScriptAdvanced')
 
 const explorer = cosmiconfig(name)
 
@@ -22,24 +22,29 @@ const loadConfig = (path = process.cwd()) => {
   }
 }
 
-const runner = {
-  loadConfig,
-  run: (code, { myrunnerrc = true, ...opts } = {}) => {
-    if (myrunnerrc) {
-      opts = {
-        ...loadConfig(opts.rootDir),
-        ...opts
-      }
-    }
-    return runScriptAdvanced(code, opts)
-  },
-  runFile: (file, opts = {}) => {
-    file = nps.resolve(opts.rootDir || process.cwd(), file)
-    return runner.run(String((opts.fs || fs).readFileSync(file)), {
+function run(code, { myrunnerrc = true, cwd, rootDir, ...opts } = {}) {
+  if (myrunnerrc) {
+    const rcConfig = loadConfig(cwd || rootDir) || {}
+    opts = {
+      ...rcConfig,
       ...opts,
-      filename: file
-    })
+      rootDir: rcConfig.rootDir || rootDir || cwd
+    }
   }
+  return runScriptAdvanced(code, opts)
 }
 
-module.exports = runner
+function runFile(file, opts = {}) {
+  file = nps.resolve(opts.cwd || opts.rootDir || process.cwd(), file)
+  return run(String((opts.fs || fs).readFileSync(file)), {
+    ...opts,
+    filename: file
+  })
+}
+
+module.exports = {
+  run,
+  runFile,
+  loadConfig,
+  defaultAdvancedOptions
+}
