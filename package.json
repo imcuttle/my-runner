@@ -1,6 +1,6 @@
 {
   "name": "my-runner",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
   "description": "Run CommonJS script in sandbox with customized style",
   "author": "imcuttle <moyuyc95@gmail.com>",
