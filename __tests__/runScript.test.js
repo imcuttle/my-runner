@@ -102,4 +102,26 @@ Array [
     expect(exps).toEqual(require(fixture('runScript/circle-2/1.js')))
     expect(chunks).toMatchSnapshot()
   })
+
+  it('should require.cache supports', function() {
+    let chunks = []
+    const spy = jest.spyOn(console, 'log').mockImplementation((...argv) => {
+      chunks.push(argv)
+    })
+
+    const exps = runScriptFile(fixture('runScript/require-cache/1.js'), {
+      moduleCache: {
+        [fixture('runScript/require-cache/1.js')]: {
+          exports: 'fake',
+          loaded: true
+        }
+      }
+    }).module.exports
+    expect(exps).toEqual('fake')
+    expect(chunks).toMatchSnapshot()
+
+    chunks = []
+    expect(runScriptFile(fixture('runScript/require-cache/1.js'), {}).module.exports).toEqual(1)
+    expect(chunks).toMatchSnapshot()
+  })
 })

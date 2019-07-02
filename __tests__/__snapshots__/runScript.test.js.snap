@@ -206,3 +206,13 @@ Array [
   ],
 ]
 `;
+
+exports[`runScript should require.cache supports 1`] = `Array []`;
+
+exports[`runScript should require.cache supports 2`] = `
+Array [
+  Array [
+    "1.js",
+  ],
+]
+`;
