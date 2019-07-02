@@ -4,6 +4,12 @@
   "main": "index.js",
   "description": "Run CommonJS script in sandbox with customized style",
   "author": "imcuttle <moyuyc95@gmail.com>",
+  "files": [
+    "lib",
+    "bin",
+    "index.js",
+    "index.d.ts"
+  ],
   "scripts": {
     "test": "jest",
     "prepublishOnly": "npm test",
