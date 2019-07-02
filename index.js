@@ -29,6 +29,7 @@ const loadConfig = (path = process.cwd()) => {
  * @param opts {{}}
  * @param {string} [opts.rootDir] - The run environment's root directory path.
  * @param {boolean} [opts.myrunnerrc] - Whether or not to look up .myrunnerrc or myrunner.config.js file.
+ * @param {{}|Function|{name: string, options: any}} [opts.preset] - A preset that is used as a base for configuration.
  * @param {Object<string, string>} [opts.moduleNameMapper] - A map from regular expressions to module names that allow to stub out resources, like images or styles with a single module.
  * @param {string[]} [opts.modulePathIgnorePatterns] - An array of regexp pattern strings that are matched against all module paths before those paths are to be considered 'visible' to the module loader.
  * @param {string[]} [opts.modulePaths] - An array of absolute paths to additional locations to search when resolving modules.
