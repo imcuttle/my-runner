@@ -22,6 +22,15 @@ const loadConfig = (path = process.cwd()) => {
   }
 }
 
+/**
+ * @public
+ * @param code
+ * @param myrunnerrc
+ * @param cwd
+ * @param rootDir
+ * @param opts
+ * @return {*}
+ */
 function run(code, { myrunnerrc = true, cwd, rootDir, ...opts } = {}) {
   if (myrunnerrc) {
     const rcConfig = loadConfig(cwd || rootDir) || {}
