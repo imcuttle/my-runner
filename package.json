@@ -11,6 +11,7 @@
     "version": "npm run doc && npm run changelog",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md"
   },
+  "bin": "./bin/my-runner.js",
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged",
@@ -59,6 +60,7 @@
     "cosmiconfig": "^5.2.1",
     "debug": "^4.1.1",
     "micromatch": "^4.0.2",
+    "minimist": "^1.2.0",
     "resolve": "^1.11.1"
   }
 }

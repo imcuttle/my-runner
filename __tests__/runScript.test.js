@@ -124,4 +124,18 @@ Array [
     expect(runScriptFile(fixture('runScript/require-cache/1.js'), {}).module.exports).toEqual(1)
     expect(chunks).toMatchSnapshot()
   })
+
+  it('should async exports', function() {
+    expect(runScriptFile(fixture('runScript/async-exports/index.js'), {}).module.exports()).toMatchInlineSnapshot(
+      `Object {}`
+    )
+    expect(require(fixture('runScript/async-exports/index.js'))()).toMatchInlineSnapshot(`Object {}`)
+
+    const fn = runScriptFile(fixture('runScript/async-exports/index.js'), {}).module.exports
+    const gn = require(fixture('runScript/async-exports/index.js'))()
+    setTimeout(() => {
+      expect(fn()).toMatchInlineSnapshot(`Object {}`)
+      expect(gn()).toMatchInlineSnapshot(`Object {}`)
+    }, 100)
+  })
 })
