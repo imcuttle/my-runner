@@ -6,6 +6,7 @@
  */
 console.log(require.main.exports)
 module.exports = [1, require('./2')]
+console.log('module.loaded', module.loaded)
 console.log('sync 1.js', module.exports)
 console.log(require.main.exports)
 // console.log(require.cache)

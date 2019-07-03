@@ -62,7 +62,6 @@
     "pretty-quick": "^1.11.1"
   },
   "dependencies": {
-    "@moyuyc/visit-tree": "^2.0.1",
     "concat-stream": "^2.0.0",
     "cosmiconfig": "^5.2.1",
     "debug": "^4.1.1",
