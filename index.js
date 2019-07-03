@@ -42,6 +42,8 @@ const loadConfig = (path = process.cwd()) => {
  * @param {Object} [opts.globals] - A set of global variables that need to be available in environments.
  * @param {Function} [opts.transformContext] - A sync function for transforming context.
  * @param {any} [opts.global={...global}] - The reference on global environment.
+ * @param {{}} [opts.moduleCache] - The reference of `require.cache`
+ * @param {{}} [opts.moduleMain] - The reference of `require.main`
  * @param {Object} [opts.fs=require('fs')] - The fs module.
  * @param {Object} [opts.vm=require('vm')] - The vm module.
  * @return {RunResult}

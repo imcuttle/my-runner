@@ -125,6 +125,15 @@ Array [
     expect(chunks).toMatchSnapshot()
   })
 
+  it('should moduleCache === require.cache supports', function() {
+    const moduleCache = {}
+    const cache = runScriptFile(fixture('runScript/require-cache/1.js'), {
+      moduleCache
+    }).require.cache
+    expect(cache).toBe(moduleCache)
+    expect(Object.keys(moduleCache).length).toBe(1)
+  })
+
   it('should async exports', function() {
     expect(runScriptFile(fixture('runScript/async-exports/index.js'), {}).module.exports()).toMatchInlineSnapshot(
       `Object {}`
