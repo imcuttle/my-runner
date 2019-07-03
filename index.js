@@ -32,7 +32,7 @@ const loadConfig = (path = process.cwd()) => {
  * @param {{}|Function|{name: string, options: any}} [opts.preset] - A preset that is used as a base for configuration.
  * @param {Object<string, string>} [opts.moduleNameMapper] - A map from regular expressions to module names that allow to stub out resources, like images or styles with a single module.
  * @param {string[]} [opts.modulePathIgnorePatterns] - An array of regexp pattern strings that are matched against all module paths before those paths are to be considered 'visible' to the module loader.
- * @param {string[]} [opts.modulePaths] - An array of absolute paths to additional locations to search when resolving modules.
+ * @param {string[]} [opts.modulePaths] - An array of absolute paths to additional locations to search when resolving modules. Use NODE_PATH env variable by default.
  * @param {string[]} [opts.moduleFileExtensions=['.js', '.json', '.jsx', '.ts', '.tsx', '.node']] - An array of file extensions your modules use.
  * @param {string[]} [opts.moduleDirectories=['node_modules']] - An array of directory names to be searched recursively up from the requiring module's location.
  * @param {boolean} [opts.browser=false] - Respect Browserify's "browser" field in package.json when resolving modules.

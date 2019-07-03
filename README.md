@@ -25,10 +25,19 @@ yarn add my-runner
 
 ## Usage
 
+### Package
+
 ```javascript
 const myRunner = require('my-runner')
 
 myRunner.runFile('/path/to/file.js').module.exports
+```
+
+### Cli
+
+```bash
+npm i my-runner -g
+my-runner --help
 ```
 
 ## API

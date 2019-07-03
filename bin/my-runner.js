@@ -102,7 +102,8 @@ if (argv.help) {
     
     --modulePathIgnorePatterns    An array of regexp pattern strings that are matched against all module paths before those paths are to be considered 'visible' to the module loader.
                              
-    --modulePaths                 An array of absolute paths to additional locations to search when resolving modules.
+    --modulePaths                 An array of absolute paths to additional locations to search when resolving modules. Use NODE_PATH env variable by default.    
+                                  [Default: ${JSON.stringify(defaultAdvancedOptions.modulePaths)}]
                              
     --moduleFileExtensions        An array of file extensions your modules use.
                                   [Default: ${JSON.stringify(defaultAdvancedOptions.moduleFileExtensions)}]
