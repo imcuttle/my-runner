@@ -8,4 +8,4 @@
 const nps = require('path')
 const { runFile } = require('../../..')
 
-console.log(runFile(nps.join(__dirname, 'Button/index.jsx')).module.exports.default.propTypes)
+console.log(JSON.stringify(runFile(nps.join(__dirname, 'Button/index.jsx')).module.exports.default.propTypes))
