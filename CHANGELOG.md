@@ -1,3 +1,13 @@
+<a name="1.0.9"></a>
+## [1.0.9](https://github.com/imcuttle/my-runner/compare/v1.0.8...v1.0.9) (2019-07-03)
+
+
+### Features
+
+* exports moduleMain & moduleCache ([4471d83](https://github.com/imcuttle/my-runner/commit/4471d83))
+
+
+
 <a name="1.0.8"></a>
 ## [1.0.8](https://github.com/imcuttle/my-runner/compare/v1.0.7...v1.0.8) (2019-07-03)
 

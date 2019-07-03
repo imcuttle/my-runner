@@ -46,7 +46,7 @@ my-runner --help
 
 ### run
 
-[index.js:49-60](https://github.com/imcuttle/my-runner/blob/ceb8691e785a6cbb36d484eee144102e65e8db3d/index.js#L49-L60 "Source code on GitHub")
+[index.js:51-62](https://github.com/imcuttle/my-runner/blob/4471d838003d4ff752a9721d654fc8628d69e061/index.js#L51-L62 "Source code on GitHub")
 
 Run code script
 
@@ -69,6 +69,8 @@ Run code script
     -   `opts.globals` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)?** A set of global variables that need to be available in environments.
     -   `opts.transformContext` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)?** A sync function for transforming context.
     -   `opts.global` **any** The reference on global environment. (optional, default `{...global}`)
+    -   `opts.moduleCache` **{}?** The reference of `require.cache`
+    -   `opts.moduleMain` **{}?** The reference of `require.main`
     -   `opts.fs` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** The fs module. (optional, default `require('fs')`)
     -   `opts.vm` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** The vm module. (optional, default `require('vm')`)
 
@@ -76,7 +78,7 @@ Returns **[RunResult](#runresult)**
 
 ### runFile
 
-[index.js:69-75](https://github.com/imcuttle/my-runner/blob/ceb8691e785a6cbb36d484eee144102e65e8db3d/index.js#L69-L75 "Source code on GitHub")
+[index.js:71-77](https://github.com/imcuttle/my-runner/blob/4471d838003d4ff752a9721d654fc8628d69e061/index.js#L71-L77 "Source code on GitHub")
 
 Run file script
 
@@ -89,13 +91,13 @@ Returns **[RunResult](#runresult)**
 
 ### RunResult
 
-[index.js:88-97](https://github.com/imcuttle/my-runner/blob/ceb8691e785a6cbb36d484eee144102e65e8db3d/index.js#L77-L86 "Source code on GitHub")
+[index.js:90-99](https://github.com/imcuttle/my-runner/blob/4471d838003d4ff752a9721d654fc8628d69e061/index.js#L79-L88 "Source code on GitHub")
 
 Type: {module: {exports}, exports, require, global}
 
 ### defaultAdvancedOptions
 
-[index.js:96-96](https://github.com/imcuttle/my-runner/blob/ceb8691e785a6cbb36d484eee144102e65e8db3d/index.js#L96-L96 "Source code on GitHub")
+[index.js:98-98](https://github.com/imcuttle/my-runner/blob/4471d838003d4ff752a9721d654fc8628d69e061/index.js#L98-L98 "Source code on GitHub")
 
 The default options
 
