@@ -103,7 +103,9 @@ The default options
 
 ## How to mock module?
 
-my-runner had injected `myRunner` in global, for example, [Mocking `prop-types`](examples/packages/computed-prop-types/libs/prop-types.js).
+my-runner had injected `myRunner` in global.
+
+for example, [Mocking `prop-types`](examples/packages/computed-prop-types/libs/prop-types.js) and setting `moduleNameMapper` to be `{"^prop-types$": "/path/to/mock-prop-types.js"}`
 
 ### `myRunner`
 
