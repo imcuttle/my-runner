@@ -34,7 +34,6 @@
     "runner",
     "my-runner"
   ],
-  "typings": "index.d.ts",
   "license": "MIT",
   "repository": "imcuttle/my-runner",
   "jest": {
