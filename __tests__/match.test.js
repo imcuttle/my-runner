@@ -11,6 +11,8 @@ describe('match', function() {
     expect(match('abc/asdad', 'abc*')).toBeTruthy()
     expect(match('abc/asdad', 'abcd')).toBeFalsy()
     expect(match('abc/asdad', ['abcd', 'abc*'])).toBeTruthy()
+    expect(match('./style.less', ['*.less'])).toBeFalsy()
+    expect(match('./style.less', ['{.,**}/*.less'])).toBeTruthy()
   })
 
   it('should match regexp', () => {

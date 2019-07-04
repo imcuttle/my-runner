@@ -11,7 +11,7 @@ global = dom.window.document.defaultView
 
 module.exports = {
   moduleNameMapper: {
-    '**/*.{less}': require.resolve('./libs/style-useable'),
+    '\\.less$': require.resolve('./libs/style-useable'),
     '^prop-types$': require.resolve('./libs/prop-types')
   },
   transform: {
