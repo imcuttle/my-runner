@@ -1,14 +1,5 @@
 const babel = require('babel-core')
 
-const { JSDOM } = require('jsdom')
-
-const dom = new JSDOM(``, {})
-
-// console.log()
-
-// Object.setPrototypeOf(global, dom)
-global = dom.window.document.defaultView
-
 module.exports = {
   moduleNameMapper: {
     '\\.less$': require.resolve('./libs/style-useable'),
@@ -33,7 +24,6 @@ module.exports = {
         ]
       }).code
 
-      // console.log('code', code)
       return code
     }
   },
