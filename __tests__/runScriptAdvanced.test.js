@@ -8,6 +8,16 @@ const { fixture } = require('./helper')
 const { runScriptAdvanced, runScriptAdvancedFile, normalizeOptions } = require('../lib/runScriptAdvanced')
 
 describe('runScriptAdvanced', function() {
+  it('should mutable-global', () => {
+    const global = {}
+    const result = runScriptAdvancedFile(fixture('runScriptAdvanced/mutable-global/index.js'), {
+      global
+    })
+    expect(result.module.exports).toMatchInlineSnapshot(`"(() => {})"`)
+    expect(result.global).toBe(global)
+    expect(typeof global._i).toBe('function')
+  })
+
   it('should globals', () => {
     expect(
       runScriptAdvancedFile(fixture('runScriptAdvanced/globals/index.js'), {

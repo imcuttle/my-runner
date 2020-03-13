@@ -47,10 +47,8 @@ Array [
           foo: 'foo'
         },
         transformContext: ctx => {
-          return {
-            ...ctx,
-            foo: 'ctxFoo'
-          }
+          ctx.global.foo = 'ctxFoo'
+          return ctx
         }
       }).module.exports
     ).toMatchInlineSnapshot(`"ctxFoo"`)
