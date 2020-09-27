@@ -4,6 +4,8 @@
  * @date 2019/6/25
  * @description
  */
+const MemoryFs = require('memory-fs')
+const { dirname } = require('path')
 const { fixture } = require('./helper')
 const { runScriptFile } = require('../lib/runScript')
 
@@ -144,5 +146,29 @@ Array [
       expect(fn()).toMatchInlineSnapshot(`Object {}`)
       expect(gn()).toMatchInlineSnapshot(`Object {}`)
     }, 100)
+  })
+
+  describe('memoryFs', function() {
+    let memoryFs
+    function writeFiles(files) {
+      for (const [name, data] of Object.entries(files)) {
+        memoryFs.mkdirpSync(dirname(name))
+        memoryFs.writeFileSync(name, String(data))
+      }
+    }
+    beforeEach(() => {
+      memoryFs = new MemoryFs()
+    })
+
+    it('should require path in memory', function() {
+      writeFiles({
+        '/index.js': `module.exports = require('./op')(require('./left'), require('./right'))`,
+        '/left.js': `module.exports = { value: 'left' }`,
+        '/right.js': `module.exports = { value: 'right' }`,
+        '/op.js': `module.exports = (left, right) => left.value + right.value`
+      })
+
+      expect(runScriptFile('/index.js', { fs: memoryFs }).module.exports).toMatchInlineSnapshot(`"leftright"`)
+    })
   })
 })

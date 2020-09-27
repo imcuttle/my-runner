@@ -4,6 +4,8 @@
  * @date 2019/6/30
  * @description
  */
+const MemoryFs = require('memory-fs')
+const { dirname } = require('path')
 const { fixture } = require('./helper')
 const { runScriptAdvanced, runScriptAdvancedFile, normalizeOptions } = require('../lib/runScriptAdvanced')
 
@@ -112,5 +114,31 @@ Array [
   "/fake/path",
 ]
 `)
+  })
+
+  describe('memoryFs', function() {
+    let memoryFs
+    function writeFiles(files) {
+      for (const [name, data] of Object.entries(files)) {
+        memoryFs.mkdirpSync(dirname(name))
+        memoryFs.writeFileSync(name, String(data))
+      }
+    }
+    beforeEach(() => {
+      memoryFs = new MemoryFs()
+    })
+
+    it('should require path in memory', function() {
+      writeFiles({
+        '/index.js': `module.exports = require('./op')(require('./left'), require('./right'))`,
+        '/left.js': `module.exports = { value: 'left' }`,
+        '/right.js': `module.exports = { value: 'right' }`,
+        '/op.js': `module.exports = (left, right) => left.value + right.value`
+      })
+
+      expect(runScriptAdvancedFile('./index.js', { fs: memoryFs, rootDir: '/' }).module.exports).toMatchInlineSnapshot(
+        `"leftright"`
+      )
+    })
   })
 })
