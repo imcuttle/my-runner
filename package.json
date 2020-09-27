@@ -64,7 +64,7 @@
   "dependencies": {
     "browser-resolve": "^2.0.0",
     "concat-stream": "^2.0.0",
-    "cosmiconfig": "^7.0.0",
+    "cosmiconfig": "^5.2.1",
     "debug": "^4.2.0",
     "micromatch": "^4.0.2",
     "minimist": "^1.2.5",
