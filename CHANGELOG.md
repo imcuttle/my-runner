@@ -1,3 +1,7 @@
+<a name="3.0.0"></a>
+
+# [3.0.0](https://github.com/imcuttle/my-runner/compare/v2.0.0...v3.0.0) (2020-09-27)
+
 <a name="2.0.0"></a>
 
 # [2.0.0](https://github.com/imcuttle/my-runner/compare/v1.0.11...v2.0.0) (2020-03-13)
