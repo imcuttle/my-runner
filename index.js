@@ -59,6 +59,11 @@ function run(code, opts = {}) {
       ...restOpts,
       rootDir: rcConfig.rootDir || rootDir || cwd
     }
+  } else {
+    restOpts = {
+      ...restOpts,
+      rootDir: rootDir || cwd
+    }
   }
   return runScriptAdvanced(code, restOpts)
 }
