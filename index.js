@@ -35,6 +35,7 @@ const loadConfig = (path = process.cwd()) => {
  * @param {string[]} [opts.modulePaths] - An array of absolute paths to additional locations to search when resolving modules. Use NODE_PATH env variable by default.
  * @param {string[]} [opts.moduleFileExtensions=['.js', '.json', '.jsx', '.ts', '.tsx', '.node']] - An array of file extensions your modules use.
  * @param {string[]} [opts.moduleDirectories=['node_modules']] - An array of directory names to be searched recursively up from the requiring module's location.
+ * @param {boolean} [opts.preserveSymlinks] - preserveSymlinks
  * @param {Function} [opts.resolver] - This option allows the use of a custom resolver. More information see [jest](https://jestjs.io/docs/en/configuration#resolver-string).
  * @param {boolean} [opts.browser=false] - Respect Browserify's "browser" field in package.json when resolving modules.
  * @param {string[]} [opts.transformIgnorePatterns=['/node_modules/']] - An array of regexp pattern strings that are matched against all source file paths before transformation. If the test path matches any of the patterns, it will not be transformed.
