@@ -46,7 +46,7 @@ my-runner --help
 
 ### run
 
-[index.js:52-63](https://github.com/imcuttle/my-runner/blob/75f46e188e60300f9018730a2f128e0236e727ae/index.js#L52-L63 'Source code on GitHub')
+[index.js:53-69](https://github.com/imcuttle/my-runner/blob/889fe52bbaf0dc76be48e598278b69a9fdabd5bb/index.js#L53-L69 'Source code on GitHub')
 
 Run code script
 
@@ -62,6 +62,7 @@ Run code script
   - `opts.modulePaths` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>?** An array of absolute paths to additional locations to search when resolving modules. Use NODE_PATH env variable by default.
   - `opts.moduleFileExtensions` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of file extensions your modules use. (optional, default `['.js','.json','.jsx','.ts','.tsx','.node']`)
   - `opts.moduleDirectories` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of directory names to be searched recursively up from the requiring module's location. (optional, default `['node_modules']`)
+  - `opts.preserveSymlinks` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** preserveSymlinks
   - `opts.resolver` **[Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)?** This option allows the use of a custom resolver. More information see [jest](https://jestjs.io/docs/en/configuration#resolver-string).
   - `opts.browser` **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** Respect Browserify's "browser" field in package.json when resolving modules. (optional, default `false`)
   - `opts.transformIgnorePatterns` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** An array of regexp pattern strings that are matched against all source file paths before transformation. If the test path matches any of the patterns, it will not be transformed. (optional, default `['/node_modules/']`)
@@ -79,7 +80,7 @@ Returns **[RunResult](#runresult)**
 
 ### runFile
 
-[index.js:72-78](https://github.com/imcuttle/my-runner/blob/75f46e188e60300f9018730a2f128e0236e727ae/index.js#L72-L78 'Source code on GitHub')
+[index.js:78-84](https://github.com/imcuttle/my-runner/blob/889fe52bbaf0dc76be48e598278b69a9fdabd5bb/index.js#L78-L84 'Source code on GitHub')
 
 Run file script
 
@@ -92,13 +93,13 @@ Returns **[RunResult](#runresult)**
 
 ### RunResult
 
-[index.js:91-100](https://github.com/imcuttle/my-runner/blob/75f46e188e60300f9018730a2f128e0236e727ae/index.js#L80-L89 'Source code on GitHub')
+[index.js:97-106](https://github.com/imcuttle/my-runner/blob/889fe52bbaf0dc76be48e598278b69a9fdabd5bb/index.js#L86-L95 'Source code on GitHub')
 
 Type: {module: {exports}, exports, require, global}
 
 ### defaultAdvancedOptions
 
-[index.js:99-99](https://github.com/imcuttle/my-runner/blob/75f46e188e60300f9018730a2f128e0236e727ae/index.js#L99-L99 'Source code on GitHub')
+[index.js:105-105](https://github.com/imcuttle/my-runner/blob/889fe52bbaf0dc76be48e598278b69a9fdabd5bb/index.js#L105-L105 'Source code on GitHub')
 
 The default options
 
