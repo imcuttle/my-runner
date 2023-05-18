@@ -1,3 +1,11 @@
+<a name="3.0.3"></a>
+
+## [3.0.3](https://github.com/imcuttle/my-runner/compare/v3.0.2...v3.0.3) (2023-05-18)
+
+### Bug Fixes
+
+- require throw error ([adcbe97](https://github.com/imcuttle/my-runner/commit/adcbe97))
+
 <a name="3.0.2"></a>
 
 ## [3.0.2](https://github.com/imcuttle/my-runner/compare/v3.0.1...v3.0.2) (2023-03-15)
