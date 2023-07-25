@@ -142,6 +142,7 @@ Array [
       })
     } catch (err) {
       const errorString = await err.toSourceMapString()
+      console.log('errorString:\n', errorString)
       expect(errorString).toMatch(/__webpack_require__.m = __webpack_modules__;/)
     }
   })
