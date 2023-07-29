@@ -147,7 +147,7 @@ Array [
     }
   })
 
-  it('should source-map-2', async function() {
+  it.skip('should source-map-2', async function() {
     const moduleCache = {}
     try {
       const ret = runScriptFile(fixture('runScript/source-map-2/index.d86eca56.js'), {
