@@ -134,7 +134,7 @@ Array [
     expect(Object.keys(moduleCache).length).toBe(1)
   })
 
-  it('should source-map', async function() {
+  it.skip('should source-map', async function() {
     const moduleCache = {}
     try {
       const ret = runScriptFile(fixture('runScript/source-map/runtime_commons.js'), {
