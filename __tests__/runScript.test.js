@@ -147,6 +147,30 @@ Array [
     }
   })
 
+  it('should source-map-2', async function() {
+    const moduleCache = {}
+    try {
+      const ret = runScriptFile(fixture('runScript/source-map-2/index.d86eca56.js'), {
+        moduleCache,
+        transformContext: ctx => {
+          const req = ctx.require
+          ctx.require = id => {
+            try {
+              return req(id)
+            } catch (err) {
+              return {}
+            }
+          }
+          return ctx
+        }
+      })
+    } catch (err) {
+      const errorString = await err.toSourceMapString()
+      console.log('errorString:\n', errorString)
+      expect(errorString).toMatch(/__webpack_require__.m = __webpack_modules__;/)
+    }
+  })
+
   it('should async exports', function() {
     expect(runScriptFile(fixture('runScript/async-exports/index.js'), {}).module.exports()).toMatchInlineSnapshot(
       `Object {}`
