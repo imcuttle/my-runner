@@ -46,7 +46,7 @@ my-runner --help
 
 ### run
 
-[index.js:53-69](https://github.com/imcuttle/my-runner/blob/1b092f332ad164054ce56ffc1697b0c45fc9c7d4/index.js#L53-L69 'Source code on GitHub')
+[index.js:53-69](https://github.com/imcuttle/my-runner/blob/bef759b5726aa40a3a6e11c5ad18eb9423a33927/index.js#L53-L69 'Source code on GitHub')
 
 Run code script
 
@@ -80,7 +80,7 @@ Returns **[RunResult](#runresult)**
 
 ### runFile
 
-[index.js:78-84](https://github.com/imcuttle/my-runner/blob/1b092f332ad164054ce56ffc1697b0c45fc9c7d4/index.js#L78-L84 'Source code on GitHub')
+[index.js:78-84](https://github.com/imcuttle/my-runner/blob/bef759b5726aa40a3a6e11c5ad18eb9423a33927/index.js#L78-L84 'Source code on GitHub')
 
 Run file script
 
@@ -93,13 +93,13 @@ Returns **[RunResult](#runresult)**
 
 ### RunResult
 
-[index.js:97-106](https://github.com/imcuttle/my-runner/blob/1b092f332ad164054ce56ffc1697b0c45fc9c7d4/index.js#L86-L95 'Source code on GitHub')
+[index.js:97-106](https://github.com/imcuttle/my-runner/blob/bef759b5726aa40a3a6e11c5ad18eb9423a33927/index.js#L86-L95 'Source code on GitHub')
 
 Type: {module: {exports}, exports, require, global}
 
 ### defaultAdvancedOptions
 
-[index.js:105-105](https://github.com/imcuttle/my-runner/blob/1b092f332ad164054ce56ffc1697b0c45fc9c7d4/index.js#L105-L105 'Source code on GitHub')
+[index.js:105-105](https://github.com/imcuttle/my-runner/blob/bef759b5726aa40a3a6e11c5ad18eb9423a33927/index.js#L105-L105 'Source code on GitHub')
 
 The default options
 
